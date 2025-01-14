@@ -26,10 +26,11 @@ public class UserController {
 
     //유저 한 명 조회
     @GetMapping("{id}")
-    public Optional<UserEntity> getUserOne(@PathVariable long id, @RequestParam(value = "flag") long flag)
-                              //, @RequestParam(value ="param1") long afterChatMessageId){
+    public Optional<UserEntity> getUserOne(
+              @PathVariable long id
+            , @RequestParam(value = "flag", required = false) Integer flag)
     {
-        return userService.findById(id);
+        return userService.findById(id, flag);
     }
 
     @PostMapping

@@ -25,9 +25,17 @@ public class InitData {
             @Override
             public void run(ApplicationArguments args) throws Exception {
                 System.out.println("동작하였음!");
-                userService.createUser( "1번 유저", "1234");
+                userService.createInitUser( "1번 유저", "1234");
                 IntStream.rangeClosed(1, 4).forEach(num -> {
-                    userService.createUser(num + "번 유저", "1234");
+                    userService.createInitUser(num + "번 유저", "1234");
+                });
+
+                // 유저에게 종속된 근무일 정보를 5건 정도 삽입해주고 싶다.
+                // 그럼 종속Entity정보와, 근무일을 입력해주면되겠네.
+                //그럼 종속 ENTITY의 어느 ROW값에 종속시킬지를 알아야 하니까,
+                //종속 ENTITY의 ID값을 필요로 할것같다.
+                IntStream.rangeClosed(1, 4).forEach(num -> {
+                    userService.createInitWorkTime(1L, "99991231");
                 });
             }
         };

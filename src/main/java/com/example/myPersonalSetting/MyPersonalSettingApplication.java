@@ -8,8 +8,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 //SpringSecurity 설치 시, 기본으로 표시되는 login화면 비표시.
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 @EnableJpaAuditing
-//@ComponentScan(basePackages = "main.java.com.example")
-//@Import(InitData.class)
 public class MyPersonalSettingApplication {
 
 	public static void main(String[] args) {
